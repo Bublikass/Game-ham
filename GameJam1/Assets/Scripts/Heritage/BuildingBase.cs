@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class priceItem
@@ -17,6 +18,8 @@ public class BuildingBase : MonoBehaviour
 
     [SerializeField] private GameObject repairedBuilding;
     [SerializeField] private GameObject brokenBuilding;
+
+    [SerializeField] private RectTransform errorPos;
 
     public virtual void Repair()
     {
@@ -51,6 +54,10 @@ public class BuildingBase : MonoBehaviour
                 PlayerInventory.Instance.RemoveItem(item.itemSO, item.amount);
             }
             PlayerInventory.Instance.RemoveBalance(coinAmount);
+        }
+        else
+        {
+            PlayerInventory.Instance.Create2DText("You don't have enough resources!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
         }
 
         // repair effect

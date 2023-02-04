@@ -9,18 +9,25 @@ public class ShopItem : MonoBehaviour
     public Item item;
     public Image icon;
 
+    [SerializeField] private RectTransform errorPos;
     public void BuyItem()
     {
-        PlayerInventory.Instance.BuyItem(plant);
+        bool bought = PlayerInventory.Instance.BuyItem(plant);
+        if (!bought)
+            PlayerInventory.Instance.Create2DText("You don't have enough coins!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
     }
 
     public void SellItem()
     {
-        PlayerInventory.Instance.SellItem(item, 1);
+        bool sold = PlayerInventory.Instance.SellItem(item, 1);
+        if (!sold)
+            PlayerInventory.Instance.Create2DText("You don't have enough supplies!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
     }
 
     public void SellAllItems()
     {
-        PlayerInventory.Instance.SellItem(item, item.amount);
+        bool sold = PlayerInventory.Instance.SellItem(item, item.amount);
+        if (!sold)
+            PlayerInventory.Instance.Create2DText("You don't have enough supplies!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
     }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcff3a5a705644c4e9a3068b0236a108, type: 3}
-  m_Name: Demo_Bounce
+  m_Name: Demo_Bounce_White
   m_EditorClassIdentifier: 
   id: 4
   colours:
-  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   sizes:
   - 0.5
   font: {fileID: 11400000, guid: 6e8649f257882c7449592c2af1ad9a51, type: 2}

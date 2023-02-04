@@ -9,6 +9,7 @@ public class Plant : MonoBehaviour
 {
     [SerializeField] private Transform plantFX;
     [SerializeField] private Transform waterFX;
+    [SerializeField] private Transform harvestFX;
 
     [SerializeField] private Sprite emptySprite;
     [SerializeField] private Sprite growingSprite;
@@ -16,6 +17,8 @@ public class Plant : MonoBehaviour
     [SerializeField] private Sprite harvestSprite;
 
     [SerializeField] private UILookAt canvasUI;
+
+    [SerializeField] private DynamicTextData textData;
 
     int plantState = 0;
     bool isPlanted = false;
@@ -34,7 +37,11 @@ public class Plant : MonoBehaviour
 
     public void InteractWithPlant(PlantSO plantSo)
     {
-        if (plantSo == null) return;
+        if (plantSo == null)
+        {
+            PlayerInventory.Instance.CreateWorldText("You have to select a seed first!", PlayerInventory.Instance.textDataDefault);
+            return;
+        }
         //plant = plantSo;
         if (canHarvest)
         {
@@ -54,7 +61,11 @@ public class Plant : MonoBehaviour
 
     public void PlantObject(PlantSO plantSo)
     {
-        if (plantSo.amount == 0) return;
+        if (plantSo.amount == 0)
+        {
+            PlayerInventory.Instance.CreateWorldText("You don't have enough seeds to plant!", PlayerInventory.Instance.textDataDefault);
+            return;
+        }
 
         if (currentPlant)
             Destroy(currentPlant.gameObject);
@@ -124,7 +135,8 @@ public class Plant : MonoBehaviour
         int amount = Random.Range(1, 5);
         PlayerInventory.Instance.AddItem(plantedPlant.harvestItem, amount);
         canvasUI.ChangeImage(emptySprite);
-        // effect
+        Instantiate(harvestFX, transform.position, Quaternion.identity);
+        PlayerInventory.Instance.CreateWorldText("+" + amount.ToString() + " " + plantedPlant.harvestItem.itemName, textData);
     }
 
     void UpdateStage()

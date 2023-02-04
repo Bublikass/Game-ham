@@ -17,7 +17,7 @@ MonoBehaviour:
   itemName: Corn Seed
   isSeed: 1
   amount: 0
-  price: 0
+  price: 20
   sellPrice: 0
   startPlant: {fileID: 5971260497206661021, guid: edb37fe96fa94cb45a904f43d839aa24,
     type: 3}

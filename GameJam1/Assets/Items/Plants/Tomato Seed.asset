@@ -17,7 +17,7 @@ MonoBehaviour:
   itemName: Tomato Seed
   isSeed: 1
   amount: 0
-  price: 0
+  price: 20
   sellPrice: 0
   startPlant: {fileID: 8940727174128709461, guid: 7bc471360fd32204baf1331857d4c0cc,
     type: 3}

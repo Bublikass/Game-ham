@@ -45,7 +45,8 @@ public class PlayerInventory : MonoBehaviour
     public bool houseBuilt;
     public bool cartBuilt;
 
-    [SerializeField] private DynamicTextData textData;
+    public DynamicTextData textDataDefault;
+    public DynamicTextData textData2DDefault;
 
     private void Awake()
     {
@@ -106,9 +107,9 @@ public class PlayerInventory : MonoBehaviour
         cartUI.SetActive(false);
     }
 
-    public void CreateWorldText(string message)
+    public void CreateWorldText(string message, DynamicTextData data)
     {
-        DynamicTextManager.CreateText(transform.position + transform.forward * 1f + new Vector3(0,1,0), message, textData);
+        DynamicTextManager.CreateText(transform.position + transform.forward * 1f + new Vector3(0,1,0), message, data);
     }
 
     #region Item Adding/Removing
@@ -222,7 +223,6 @@ public class PlayerInventory : MonoBehaviour
                         SetPlot(plotObject);
                     if (inputs.interact)
                     {
-                        CreateWorldText("You don't have enough seeds to plant!");
                         interactableObject.Interact();
                         break;
                     }
@@ -259,20 +259,24 @@ public class PlayerInventory : MonoBehaviour
         selectedPlantVisual.SetItem(plant);
     }
 
-    public void BuyItem(PlantSO item)
+    public bool BuyItem(PlantSO item)
     {
         if (balance >= item.price)
         {
             balance -= item.price;
             AddItem(item, 1);
+            return true;
         }
+        else
+            return false;
     }
 
-    public void SellItem(Item item, int amount)
+    public bool SellItem(Item item, int amount)
     {
-        if (item.amount == 0) return;
+        if (item.amount == 0) return false;
         balance += item.sellPrice * amount;
         RemoveItem(item, amount);
+        return true;
     }
 
     public void WaterPlant()
@@ -297,9 +301,15 @@ public class PlayerInventory : MonoBehaviour
     public void OpenShop()
     {
         shopObject.SetActive(true);
+
     }
     public void CloseShop()
     {
         shopObject.SetActive(false);
+    }
+
+    public void Create2DText(string message, Vector2 position, Transform parent, DynamicTextData data)
+    {
+        DynamicTextManager.CreateText2D(position, message, data, parent);
     }
 }
