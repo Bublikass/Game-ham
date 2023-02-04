@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800b72bdfb81aef4a94ec54802f7c9d2, type: 3}
+  m_Name: Carrot Seed
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}
+  itemName: Carrot Seed
+  isSeed: 1
+  amount: 0
+  price: 0
+  sellPrice: 0
+  startPlant: {fileID: 7642442071799320665, guid: e590fccd90f18bf4d9865333cc8024b1,
+    type: 3}
+  midPlant: {fileID: 6066377698410013636, guid: 0787be55395b45c4d88a00a03432ff0a,
+    type: 3}
+  endPlant: {fileID: 664154204654764500, guid: cce953cc86c596243a4c93a4c87d90fb, type: 3}
+  stageGrowTime: 6
+  harvestItem: {fileID: 11400000, guid: 84b67e93cb67dd1469a935bd81aaab26, type: 2}
+  startPlantPivot: {x: 0, y: 0, z: 0}
+  midtPlantPivot: {x: 0, y: 0, z: 0}
+  endPlantPivot: {x: 0, y: 0, z: 0}

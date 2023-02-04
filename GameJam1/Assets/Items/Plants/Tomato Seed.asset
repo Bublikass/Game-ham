@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800b72bdfb81aef4a94ec54802f7c9d2, type: 3}
+  m_Name: Tomato Seed
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}
+  itemName: Tomato Seed
+  isSeed: 1
+  amount: 0
+  price: 0
+  sellPrice: 0
+  startPlant: {fileID: 8940727174128709461, guid: 7bc471360fd32204baf1331857d4c0cc,
+    type: 3}
+  midPlant: {fileID: 4807278407515680450, guid: 413c9c858c9aae1449f0604739547967,
+    type: 3}
+  endPlant: {fileID: 8038000539823980936, guid: 58cbc4cddb16b994499b5dd2371aa8bd,
+    type: 3}
+  stageGrowTime: 6
+  harvestItem: {fileID: 11400000, guid: 5238019d1342daa4c858311d185998ad, type: 2}
+  startPlantPivot: {x: 0, y: 0.2, z: 0}
+  midtPlantPivot: {x: 0, y: 0.07, z: 0}
+  endPlantPivot: {x: 0, y: 0.9, z: 0}
