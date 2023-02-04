@@ -76,7 +76,7 @@ public class Plant : MonoBehaviour
             transform.localPosition = plantedPlant.startPlantPivot;
             LeanTween.scale(currentPlant.gameObject, Vector3.one, timerBetweenStages - 2f);
             Instantiate(plantFX, transform.position, Quaternion.identity);
-            canvasUI.ChangeImage(growingSprite);
+            canvasUI.ChangeImage(plantedPlant.harvestIcon);
         }
     }
 
@@ -103,7 +103,7 @@ public class Plant : MonoBehaviour
         needWater = false;
         LeanTween.scale(currentPlant.gameObject, Vector3.one, timerBetweenStages - 2f);
         PlayerInventory.Instance.WaterPlant();
-        canvasUI.ChangeImage(growingSprite);
+        canvasUI.ChangeImage(plantedPlant.harvestIcon);
         Invoke(nameof(StartGrowing), 1f);
     }
 

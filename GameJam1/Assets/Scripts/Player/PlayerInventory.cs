@@ -45,6 +45,8 @@ public class PlayerInventory : MonoBehaviour
     public bool houseBuilt;
     public bool cartBuilt;
 
+    [SerializeField] private DynamicTextData textData;
+
     private void Awake()
     {
         Instance = this;
@@ -102,6 +104,11 @@ public class PlayerInventory : MonoBehaviour
         HouseUI.SetActive(false);
         plotUI.SetActive(false);
         cartUI.SetActive(false);
+    }
+
+    public void CreateWorldText(string message)
+    {
+        DynamicTextManager.CreateText(transform.position + transform.forward * 1f + new Vector3(0,1,0), message, textData);
     }
 
     #region Item Adding/Removing
@@ -215,6 +222,7 @@ public class PlayerInventory : MonoBehaviour
                         SetPlot(plotObject);
                     if (inputs.interact)
                     {
+                        CreateWorldText("You don't have enough seeds to plant!");
                         interactableObject.Interact();
                         break;
                     }

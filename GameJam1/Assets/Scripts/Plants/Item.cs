@@ -6,6 +6,7 @@ public class Item : ScriptableObject
 {
     [Header("Item Information")]
     public Sprite itemIcon;
+    public Sprite harvestIcon;
     public string itemName;
 
     public bool isSeed;

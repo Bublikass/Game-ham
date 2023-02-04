@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wheat Seed
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 3b3b0763090d9dc4cb170814df51f4ee, type: 3}
+  harvestIcon: {fileID: 21300000, guid: dd70df88b0b998e48b042554448138e2, type: 3}
   itemName: Wheat Seed
   isSeed: 1
   amount: 1

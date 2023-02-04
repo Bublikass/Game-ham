@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Tomato Seed
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 19b676a39f1d9b7408039308bd3a39e4, type: 3}
+  harvestIcon: {fileID: 21300000, guid: 101e1a3d7b1d6ab4fb92fa991f363ff6, type: 3}
   itemName: Tomato Seed
   isSeed: 1
-  amount: 1
+  amount: 0
   price: 0
   sellPrice: 0
   startPlant: {fileID: 8940727174128709461, guid: 7bc471360fd32204baf1331857d4c0cc,
