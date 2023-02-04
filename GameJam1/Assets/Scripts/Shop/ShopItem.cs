@@ -16,7 +16,11 @@ public class ShopItem : MonoBehaviour
 
     public void SellItem()
     {
-        PlayerInventory.Instance.SellItem(item);
+        PlayerInventory.Instance.SellItem(item, 1);
     }
-    
+
+    public void SellAllItems()
+    {
+        PlayerInventory.Instance.SellItem(item, item.amount);
+    }
 }

@@ -25,12 +25,11 @@ public class InventoryVisual : MonoBehaviour
 
     void UpdateItem(Item itemToUpdate, ItemVisual[] itemsList)
     {
-
         foreach (ItemVisual itemVisual in itemsList)
         {
             if (itemVisual.item.itemName == itemToUpdate.itemName)
             {
-                itemVisual.UpdateItem(itemToUpdate);
+                itemVisual.UpdateItem(itemToUpdate.amount);
             }
         }
     }

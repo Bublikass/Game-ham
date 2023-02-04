@@ -12,9 +12,9 @@ public class ItemVisual : MonoBehaviour
     public TextMeshProUGUI amountText;
 
 
-    public void UpdateItem(Item itemToUpdate)
+    public void UpdateItem(int amount)
     {
-        amountText.text = itemToUpdate.amount.ToString();
+        amountText.text = amount.ToString();
     }
 
     public void SelectItem()

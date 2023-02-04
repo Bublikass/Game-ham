@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800b72bdfb81aef4a94ec54802f7c9d2, type: 3}
   m_Name: Corn Seed
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}
+  itemIcon: {fileID: 21300000, guid: dfa8973902e96d443896c2c6ca83bfe3, type: 3}
   itemName: Corn Seed
   isSeed: 1
-  amount: 0
+  amount: 4
   price: 0
   sellPrice: 0
   startPlant: {fileID: 5971260497206661021, guid: edb37fe96fa94cb45a904f43d839aa24,

@@ -21,6 +21,7 @@ public class PlayerInventory : MonoBehaviour
     public List<Item> items = new List<Item>();
 
     public PlantSO selectedPlant;
+    public SelectedItem selectedPlantVisual;
 
     public int balance;
 
@@ -59,6 +60,8 @@ public class PlayerInventory : MonoBehaviour
         inputs.interact = false;
     }
 
+    #region Item Adding/Removing
+
     public void AddItem(Item item, int amount)
     {
         Item currentItem = null;
@@ -88,11 +91,50 @@ public class PlayerInventory : MonoBehaviour
             if (currentItem)
             {
                 currentItem.amount = currentItem.amount + amount;
-                Debug.Log(amount);
             }
         }
         inventoryVisual.UpdateItems();
     }
+
+    public void RemoveItem(Item item, int amount)
+    {
+        Item currentItem = null;
+        if (item.isSeed)
+        {
+            foreach (Item seed in seeds)
+            {
+                if (seed.itemName == item.itemName)
+                {
+                    currentItem = seed;
+                    break;
+                }
+            }
+            int newAmount = currentItem.amount - amount;
+            if (currentItem && newAmount >= 0)
+            {
+                currentItem.amount -= amount;
+            }
+        }
+        else
+        {
+            foreach (Item thing in items)
+            {
+                if (thing.itemName == item.itemName)
+                {
+                    currentItem = thing;
+                    break;
+                }
+            }
+            int newAmount = currentItem.amount - amount;
+            if (currentItem && newAmount >= 0)
+            {
+                currentItem.amount -= amount;
+            }
+        }
+        inventoryVisual.UpdateItems();
+    }
+
+    #endregion
 
     public void CheckForInteractable()
     {
@@ -154,6 +196,7 @@ public class PlayerInventory : MonoBehaviour
     public void SelectPlant(PlantSO plant)
     {
         selectedPlant = plant;
+        selectedPlantVisual.SetItem(plant);
     }
 
     public void BuyItem(PlantSO item)
@@ -165,17 +208,11 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void SellItem(Item item)
+    public void SellItem(Item item, int amount)
     {
-        foreach (Item thing in items)
-        {
-            if (thing.itemName == item.itemName && thing.amount > 0)
-            {
-                break;
-            }
-        }
-        balance += item.sellPrice;
-        AddItem(item, -1);
+        if (item.amount == 0) return;
+        balance += item.sellPrice * amount;
+        RemoveItem(item, amount);
     }
 
     public void WaterPlant()
