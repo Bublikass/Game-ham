@@ -113,16 +113,7 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
-        Vector3 lastInteractDir;
-
-        Plot selectedPlot;
-
-        public event EventHandler<OnSelectedPlotChangedEventArgs> OnSelectedPlotChanged;
-        public class OnSelectedPlotChangedEventArgs : EventArgs
-        {
-            public Plot selectedPlot;
-        }
-
+        public bool canMove = true;
         private bool IsCurrentDeviceMouse
         {
             get
@@ -170,16 +161,13 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
             GroundedCheck();
-            Move();
-            if (_input.interact)
+
+            if (canMove)
             {
-                if (selectedPlot != null)
-                    selectedPlot.Interact();
-                _input.interact = false;
+                JumpAndGravity();
+                Move();
             }
-            HandleInteractions();
         }
 
         private void LateUpdate()
@@ -209,46 +197,6 @@ namespace StarterAssets
             {
                 _animator.SetBool(_animIDGrounded, Grounded);
             }
-        }
-
-        private void HandleInteractions()
-        {
-            Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
-
-            if (inputDirection != Vector3.zero)
-                lastInteractDir = inputDirection;
-
-            float interactDistance = 2f;
-            //Debug.Log(lastInteractDir);
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance))
-            {
-                Debug.Log(hit.transform);
-                if (hit.transform.TryGetComponent(out Plot plot))
-                {
-                    if (plot != selectedPlot)
-                    {
-                        SetPlot(plot);
-                    }
-                }
-                else
-                {
-                    SetPlot(null);
-                }
-            }
-            else
-            {
-                SetPlot(null);
-            }
-        }
-
-        void SetPlot(Plot selectedPlot)
-        {
-            this.selectedPlot = selectedPlot;
-
-            OnSelectedPlotChanged?.Invoke(this, new OnSelectedPlotChangedEventArgs
-            {
-                selectedPlot = selectedPlot
-            });
         }
 
         private void CameraRotation()
@@ -340,6 +288,10 @@ namespace StarterAssets
             }
         }
 
+        public void PlayTargetAnimation(string targetAnim)
+        {
+            _animator.CrossFade(targetAnim, 0.2f);
+        }
         private void JumpAndGravity()
         {
             if (Grounded)

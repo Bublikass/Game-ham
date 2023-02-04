@@ -10,10 +10,10 @@ public class SelectedPlotVisual : MonoBehaviour
     [SerializeField] private GameObject visualGameObject;
     private void Start()
     {
-        ThirdPersonController.instance.OnSelectedPlotChanged += OnSelectedPlotChanged;
+        PlayerInventory.Instance.OnSelectedPlotChanged += OnSelectedPlotChanged;
     }
 
-    private void OnSelectedPlotChanged(object sender, ThirdPersonController.OnSelectedPlotChangedEventArgs e)
+    private void OnSelectedPlotChanged(object sender, PlayerInventory.OnSelectedPlotChangedEventArgs e)
     {
         if (e.selectedPlot == selectedPlot)
             Show();

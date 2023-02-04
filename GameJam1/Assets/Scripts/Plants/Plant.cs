@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using StarterAssets;
 
 public class Plant : MonoBehaviour
 {
@@ -98,11 +99,12 @@ public class Plant : MonoBehaviour
         needWater = false;
         isGrowing = true;
         LeanTween.scale(currentPlant.gameObject, Vector3.one, timerBetweenStages - 2f);
-        if (currentPlant.GetComponentInChildren<Canvas>())
+        if (currentPlant.Find("ParticlePosition"))
         {
-            Instantiate(waterFX, currentPlant.GetComponentInChildren<Canvas>().transform.position, Quaternion.identity);
-            //Destroy(currentPlant.GetComponentInChildren<Canvas>().gameObject);
+            Instantiate(waterFX, currentPlant.Find("ParticlePosition").position, Quaternion.identity);
         }
+        ThirdPersonController.instance.PlayTargetAnimation("Watering");
+        ThirdPersonController.instance.canMove = false;
         canvasUI.ChangeImage(growingSprite);
     }
 

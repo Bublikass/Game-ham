@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace CodeBublik
 {
-    public class Plot : MonoBehaviour
+    public class Plot : Interactable
     {
         
-        public void Interact()
+        public override void Interact()
         {
             Debug.Log("INTERACT");
             GetComponentInChildren<Plant>().InteractWithPlant(PlayerInventory.Instance.selectedPlant);
