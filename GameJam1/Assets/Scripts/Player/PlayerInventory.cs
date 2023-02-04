@@ -33,7 +33,8 @@ public class PlayerInventory : MonoBehaviour
         public Plot selectedPlot;
     }
 
-    //[SerializeField] private  
+    [SerializeField] private GameObject wateringCan;
+    [SerializeField] private WateringEffect wateringEffect;
 
     private void Awake()
     {
@@ -180,12 +181,20 @@ public class PlayerInventory : MonoBehaviour
     public void WaterPlant()
     {
         ThirdPersonController.instance.PlayTargetAnimation("Watering");
+        wateringEffect.StartEffect();
         ThirdPersonController.instance.canMove = false;
+        wateringCan.SetActive(true);
     }
 
     void StoppedWatering()
     {
         ThirdPersonController.instance.canMove = true;
+        wateringCan.SetActive(false);
+    }
+
+    void StopWater()
+    {
+        wateringEffect.StopEffect();
     }
 
     public void OpenShop()

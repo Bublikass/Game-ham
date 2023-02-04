@@ -14,8 +14,7 @@ public class ItemVisual : MonoBehaviour
 
     public void UpdateItem(Item itemToUpdate)
     {
-        amountText.text = "X" + itemToUpdate.amount.ToString();
-        icon.sprite = itemToUpdate.itemIcon;
+        amountText.text = itemToUpdate.amount.ToString();
     }
 
     public void SelectItem()

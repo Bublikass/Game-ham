@@ -17,3 +17,4 @@ MonoBehaviour:
   isSeed: 0
   amount: 0
   price: 0
+  sellPrice: 0

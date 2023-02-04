@@ -79,9 +79,8 @@ public class Plant : MonoBehaviour
     {
         if (isPlanted)
         {
-            if (!needWater && !canHarvest)
+            if (!needWater && !canHarvest && isGrowing)
             {
-                isGrowing = true;
                 timer -= Time.deltaTime;
             }
 
@@ -97,15 +96,15 @@ public class Plant : MonoBehaviour
     void WaterPlant()
     {
         needWater = false;
-        isGrowing = true;
         LeanTween.scale(currentPlant.gameObject, Vector3.one, timerBetweenStages - 2f);
-        if (currentPlant.Find("ParticlePosition"))
-        {
-            Instantiate(waterFX, currentPlant.Find("ParticlePosition").position, Quaternion.identity);
-        }
-        ThirdPersonController.instance.PlayTargetAnimation("Watering");
-        ThirdPersonController.instance.canMove = false;
+        PlayerInventory.Instance.WaterPlant();
         canvasUI.ChangeImage(growingSprite);
+        Invoke(nameof(StartGrowing), 1f);
+    }
+
+    void StartGrowing()
+    {
+        isGrowing = true;
     }
 
     void HarvestPlant()
