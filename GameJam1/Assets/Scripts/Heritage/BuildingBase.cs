@@ -54,6 +54,9 @@ public class BuildingBase : MonoBehaviour
                 PlayerInventory.Instance.RemoveItem(item.itemSO, item.amount);
             }
             PlayerInventory.Instance.RemoveBalance(coinAmount);
+
+            repairedBuilding.SetActive(true);
+            brokenBuilding.SetActive(false);
         }
         else
         {

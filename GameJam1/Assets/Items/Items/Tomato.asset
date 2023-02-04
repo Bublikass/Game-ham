@@ -17,5 +17,5 @@ MonoBehaviour:
   itemName: Tomato
   isSeed: 0
   amount: 0
-  price: 0
+  price: 20
   sellPrice: 15

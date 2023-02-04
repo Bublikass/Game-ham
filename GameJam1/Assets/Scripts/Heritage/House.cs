@@ -8,5 +8,6 @@ public class House : BuildingBase
     {
         base.Repair();
         PlayerInventory.Instance.houseBuilt = true;
+
     }
 }

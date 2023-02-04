@@ -16,7 +16,7 @@ MonoBehaviour:
   harvestIcon: {fileID: 21300000, guid: dd70df88b0b998e48b042554448138e2, type: 3}
   itemName: Wheat Seed
   isSeed: 1
-  amount: 0
+  amount: 1
   price: 20
   sellPrice: 0
   startPlant: {fileID: 3560135519109335940, guid: 711d3ec445af5354b85e8ca5cc4d7b26,
