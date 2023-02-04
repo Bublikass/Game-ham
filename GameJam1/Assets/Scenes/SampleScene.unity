@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 334284737}
+  m_Material: {fileID: 1230950637}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1583,42 +1583,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1512008194}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &334284737
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Default UI Material
-  m_Shader: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &339725494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1779,6 +1743,11 @@ PrefabInstance:
       propertyPath: errorPos
       value: 
       objectReference: {fileID: 628134210}
+    - target: {fileID: 2265988277044425081, guid: bed01ffa262df634f962d081e1e50c4f,
+        type: 3}
+      propertyPath: isSelling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6349900635975089566, guid: bed01ffa262df634f962d081e1e50c4f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2518,6 +2487,11 @@ PrefabInstance:
       propertyPath: errorPos
       value: 
       objectReference: {fileID: 628134210}
+    - target: {fileID: 8164398045160576937, guid: 40e7000ede37ba847bcd40ee63e1da89,
+        type: 3}
+      propertyPath: isSelling
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e7000ede37ba847bcd40ee63e1da89, type: 3}
 --- !u!224 &513777650 stripped
@@ -3436,6 +3410,11 @@ PrefabInstance:
       propertyPath: errorPos
       value: 
       objectReference: {fileID: 628134210}
+    - target: {fileID: 8164398045160576937, guid: 40e7000ede37ba847bcd40ee63e1da89,
+        type: 3}
+      propertyPath: isSelling
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e7000ede37ba847bcd40ee63e1da89, type: 3}
 --- !u!224 &669237925 stripped
@@ -6122,6 +6101,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185095060}
   m_CullTransparentMesh: 1
+--- !u!21 &1230950637
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Default UI Material
+  m_Shader: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1232402662
 GameObject:
   m_ObjectHideFlags: 0
@@ -6784,6 +6799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1367588272}
   - component: {fileID: 1367588271}
+  - component: {fileID: 1367588273}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6824,6 +6840,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1367588273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367588270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a542c101c0b54c14a973876a446565c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musics: []
+  sounds: []
 --- !u!1 &1405610232
 GameObject:
   m_ObjectHideFlags: 0
@@ -7323,6 +7353,11 @@ PrefabInstance:
       propertyPath: errorPos
       value: 
       objectReference: {fileID: 628134210}
+    - target: {fileID: 2265988277044425081, guid: bed01ffa262df634f962d081e1e50c4f,
+        type: 3}
+      propertyPath: isSelling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6349900635975089566, guid: bed01ffa262df634f962d081e1e50c4f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -13023,6 +13058,11 @@ PrefabInstance:
       propertyPath: errorPos
       value: 
       objectReference: {fileID: 628134210}
+    - target: {fileID: 2265988277044425081, guid: bed01ffa262df634f962d081e1e50c4f,
+        type: 3}
+      propertyPath: isSelling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3481708911301053182, guid: bed01ffa262df634f962d081e1e50c4f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -14077,6 +14117,11 @@ PrefabInstance:
       propertyPath: errorPos
       value: 
       objectReference: {fileID: 628134210}
+    - target: {fileID: 8164398045160576937, guid: 40e7000ede37ba847bcd40ee63e1da89,
+        type: 3}
+      propertyPath: isSelling
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e7000ede37ba847bcd40ee63e1da89, type: 3}
 --- !u!4 &6392546783437337162

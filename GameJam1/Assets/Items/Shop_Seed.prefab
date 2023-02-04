@@ -307,6 +307,8 @@ MonoBehaviour:
   plant: {fileID: 11400000, guid: be7ebc577439c9c4f81ed8f69371fa22, type: 2}
   item: {fileID: 11400000, guid: be7ebc577439c9c4f81ed8f69371fa22, type: 2}
   icon: {fileID: 0}
+  priceText: {fileID: 7363001306592750593}
+  errorPos: {fileID: 0}
 --- !u!1 &5603210294440557419
 GameObject:
   m_ObjectHideFlags: 0

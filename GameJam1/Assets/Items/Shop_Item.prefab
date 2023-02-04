@@ -925,3 +925,5 @@ MonoBehaviour:
   plant: {fileID: 11400000, guid: be7ebc577439c9c4f81ed8f69371fa22, type: 2}
   item: {fileID: 11400000, guid: be7ebc577439c9c4f81ed8f69371fa22, type: 2}
   icon: {fileID: 0}
+  priceText: {fileID: 581261476039002833}
+  errorPos: {fileID: 0}
