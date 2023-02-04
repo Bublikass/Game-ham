@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   colours:
-  - {r: 1, g: 1, b: 1, a: 1}
-  sizes: []
-  font: {fileID: 0}
+  - {r: 0.990566, g: 0.4999555, b: 0.4999555, a: 1}
+  sizes:
+  - 0.5
+  font: {fileID: 11400000, guid: 6e8649f257882c7449592c2af1ad9a51, type: 2}
   bold: 0
   italic: 0
   underline: 0
@@ -29,9 +30,9 @@ MonoBehaviour:
   enterDuration: 0.1
   exitDuration: 0.5
   maxDrift: 0.5
-  maxHeight: 0.5
+  maxHeight: 0.1
   popModifier: 0
   colourAlternationMode: 0
   sizeAlternationMode: 0
-  enterType: 03000000
+  enterType: 04000000
   exitType: 1
