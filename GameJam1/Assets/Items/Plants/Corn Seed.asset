@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Corn Seed
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: dfa8973902e96d443896c2c6ca83bfe3, type: 3}
+  harvestIcon: {fileID: 21300000, guid: 18bc1982627ed5d4098ab17947c92052, type: 3}
   itemName: Corn Seed
   isSeed: 1
-  amount: 4
+  amount: 0
   price: 0
   sellPrice: 0
   startPlant: {fileID: 5971260497206661021, guid: edb37fe96fa94cb45a904f43d839aa24,

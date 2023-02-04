@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cart : MonoBehaviour
+public class Cart : BuildingBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Repair()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Repair();
+        PlayerInventory.Instance.cartBuilt = true;
     }
 }
