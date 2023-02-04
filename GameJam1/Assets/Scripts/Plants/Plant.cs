@@ -54,13 +54,18 @@ public class Plant : MonoBehaviour
 
     public void PlantObject(PlantSO plantSo)
     {
+        if (plantSo.amount == 0) return;
+
         if (currentPlant)
             Destroy(currentPlant.gameObject);
 
         if (!isPlanted)
         {
+            plantSo.amount -= 1;
             plantedPlant = plantSo;
             timerBetweenStages = plantedPlant.stageGrowTime;
+            if (PlayerInventory.Instance.houseBuilt)
+                timerBetweenStages *= 0.8f;
             currentPlant = Instantiate(plantedPlant.startPlant, transform.position, Quaternion.identity, transform).transform;
             timer = timerBetweenStages;
             isPlanted = true;

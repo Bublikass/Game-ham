@@ -22,6 +22,7 @@ public class PlayerInventory : MonoBehaviour
 
     public PlantSO selectedPlant;
     public SelectedItem selectedPlantVisual;
+    public TextMeshProUGUI balanceText;
 
     public int balance;
 
@@ -37,12 +38,36 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private GameObject wateringCan;
     [SerializeField] private WateringEffect wateringEffect;
 
+    public GameObject HouseUI;
+    public GameObject plotUI;
+    public GameObject cartUI;
+
+    public bool houseBuilt;
+    public bool cartBuilt;
+
     private void Awake()
     {
         Instance = this;
         inputs = GetComponent<StarterAssetsInputs>();
         inventoryVisual = inventoryObject.GetComponent<InventoryVisual>();
     }
+
+    private void Start()
+    {
+
+        foreach (Item seed in seeds)
+        {
+            seed.amount = 0;
+        }
+
+        foreach (Item item in items)
+        {
+            item.amount = 0;
+        }
+
+        balance = 20;
+    }
+
     public void Update()
     {
         if (inputs.inventory)
@@ -53,6 +78,8 @@ public class PlayerInventory : MonoBehaviour
         }
 
         CheckForInteractable();
+
+        balanceText.text = "Balance: " + balance.ToString();
     }
 
     private void LateUpdate()
@@ -60,8 +87,31 @@ public class PlayerInventory : MonoBehaviour
         inputs.interact = false;
     }
 
+    public void OpenBuildingUI(GameObject UI)
+    {
+        UI.SetActive(true);
+    }
+
+    public void CloseBuildingUI(GameObject UI)
+    {
+        UI.SetActive(false);
+    }
+
+    void CloseAllBuildingUIS()
+    {
+        HouseUI.SetActive(false);
+        plotUI.SetActive(false);
+        cartUI.SetActive(false);
+    }
+
     #region Item Adding/Removing
 
+    public void RemoveBalance(int amount)
+    {
+        if (balance >= amount)
+            balance -= amount;
+
+    }
     public void AddItem(Item item, int amount)
     {
         Item currentItem = null;
@@ -173,6 +223,7 @@ public class PlayerInventory : MonoBehaviour
                 {
                     SetPlot(null);
                     CloseShop();
+                    CloseAllBuildingUIS();
                 }
             }
         }
@@ -181,6 +232,7 @@ public class PlayerInventory : MonoBehaviour
             interactableUI_GameObject.SetActive(false);
             SetPlot(null);
             CloseShop();
+            CloseAllBuildingUIS();
         }
     }
     void SetPlot(Plot selectedPlot)
