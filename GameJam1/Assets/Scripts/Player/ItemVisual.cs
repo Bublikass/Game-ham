@@ -22,7 +22,7 @@ public class ItemVisual : MonoBehaviour
         if (plant != null)
         {
             PlayerInventory.Instance.SelectPlant(plant);
-            // effect
+            FindObjectOfType<AudioManager>().PlaySound("Click");
         }
     }
 }

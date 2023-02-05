@@ -22,6 +22,7 @@ public class ShopItem : MonoBehaviour
 
     public void BuyItem()
     {
+        FindObjectOfType<AudioManager>().PlaySound("Click");
         bool bought = PlayerInventory.Instance.BuyItem(plant);
         if (!bought)
         {
@@ -35,6 +36,7 @@ public class ShopItem : MonoBehaviour
 
     public void SellItem()
     {
+        FindObjectOfType<AudioManager>().PlaySound("Click");
         bool sold = PlayerInventory.Instance.SellItem(item, 1);
         if (!sold)
         {
@@ -48,6 +50,7 @@ public class ShopItem : MonoBehaviour
 
     public void SellAllItems()
     {
+        FindObjectOfType<AudioManager>().PlaySound("Click");
         bool sold = PlayerInventory.Instance.SellItem(item, item.amount);
         if (!sold)
         {

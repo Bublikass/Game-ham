@@ -48,6 +48,9 @@ public class PlayerInventory : MonoBehaviour
     public DynamicTextData textDataDefault;
     public DynamicTextData textData2DDefault;
 
+    bool buildingOpen = false;
+    bool shopOpen = false;
+
     private void Awake()
     {
         Instance = this;
@@ -75,13 +78,19 @@ public class PlayerInventory : MonoBehaviour
     {
         if (inputs.inventory)
         {
+            inputs.inventory = false;
+            if (shopOpen) return;
+            if (buildingOpen) return;
             inventoryVisual.UpdateItems();
             inventoryObject.SetActive(!inventoryObject.activeSelf);
             if (inventoryObject.activeSelf == false)
+            {
                 FindObjectOfType<AudioManager>().PlaySound("Bag_Close");
+            }
             else
+            {
                 FindObjectOfType<AudioManager>().PlaySound("Bag_Open");
-            inputs.inventory = false;
+            }
         }
 
         CheckForInteractable();
@@ -97,11 +106,13 @@ public class PlayerInventory : MonoBehaviour
     public void OpenBuildingUI(GameObject UI)
     {
         UI.SetActive(true);
+        buildingOpen = true;
     }
 
     public void CloseBuildingUI(GameObject UI)
     {
         UI.SetActive(false);
+        buildingOpen = false;
     }
 
     void CloseAllBuildingUIS()
@@ -109,6 +120,7 @@ public class PlayerInventory : MonoBehaviour
         HouseUI.SetActive(false);
         plotUI.SetActive(false);
         cartUI.SetActive(false);
+        buildingOpen = false;
     }
 
     public void DiscountItems()
@@ -313,11 +325,13 @@ public class PlayerInventory : MonoBehaviour
     public void OpenShop()
     {
         shopObject.SetActive(true);
+        shopOpen = true;
 
     }
     public void CloseShop()
     {
         shopObject.SetActive(false);
+        shopOpen = false;
     }
 
     public void Create2DText(string message, Vector2 position, Transform parent, DynamicTextData data)

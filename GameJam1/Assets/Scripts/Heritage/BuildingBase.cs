@@ -22,6 +22,10 @@ public class BuildingBase : MonoBehaviour
     [SerializeField] private RectTransform errorPos;
 
     [SerializeField] private GameObject buildingObject;
+
+    [SerializeField] private GameObject buildingFX;
+
+    [SerializeField] private Transform effectPos;
     public virtual void Repair()
     {
         bool hasResources = false;
@@ -62,6 +66,7 @@ public class BuildingBase : MonoBehaviour
             this.gameObject.SetActive(false);
             FindObjectOfType<AudioManager>().PlaySound("Buy_Success");
             FindObjectOfType<AudioManager>().PlaySound("Build");
+            Instantiate(buildingFX, effectPos.position, Quaternion.identity);
         }
         else
         {
