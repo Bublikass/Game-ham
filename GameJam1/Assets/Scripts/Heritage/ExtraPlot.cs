@@ -7,6 +7,5 @@ public class ExtraPlot : BuildingBase
     public override void Repair()
     {
         base.Repair();
-        
     }
 }

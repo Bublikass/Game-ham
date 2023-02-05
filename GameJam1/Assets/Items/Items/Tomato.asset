@@ -16,6 +16,6 @@ MonoBehaviour:
   harvestIcon: {fileID: 0}
   itemName: Tomato
   isSeed: 0
-  amount: 0
+  amount: 20
   price: 20
-  sellPrice: 15
+  sellPrice: 13

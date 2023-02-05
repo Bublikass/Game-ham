@@ -8,5 +8,6 @@ public class Cart : BuildingBase
     {
         base.Repair();
         PlayerInventory.Instance.cartBuilt = true;
+        PlayerInventory.Instance.DiscountItems();
     }
 }

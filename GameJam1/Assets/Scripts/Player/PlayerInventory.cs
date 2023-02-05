@@ -111,6 +111,14 @@ public class PlayerInventory : MonoBehaviour
         cartUI.SetActive(false);
     }
 
+    public void DiscountItems()
+    {
+        foreach (Item item in seeds)
+        {
+            item.price = Mathf.RoundToInt(item.price * 0.8f);
+        }
+    }
+
     public void CreateWorldText(string message, DynamicTextData data)
     {
         DynamicTextManager.CreateText(transform.position + transform.forward * 1f + new Vector3(0,1,0), message, data);
