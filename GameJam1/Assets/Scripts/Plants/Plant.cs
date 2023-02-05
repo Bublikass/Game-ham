@@ -88,6 +88,7 @@ public class Plant : MonoBehaviour
             LeanTween.scale(currentPlant.gameObject, Vector3.one, timerBetweenStages - 2f);
             Instantiate(plantFX, transform.position, Quaternion.identity);
             canvasUI.ChangeImage(plantedPlant.harvestIcon);
+            FindObjectOfType<AudioManager>().PlaySound("Plant");
         }
     }
 
@@ -116,6 +117,7 @@ public class Plant : MonoBehaviour
         PlayerInventory.Instance.WaterPlant();
         canvasUI.ChangeImage(plantedPlant.harvestIcon);
         Invoke(nameof(StartGrowing), 1f);
+        FindObjectOfType<AudioManager>().PlaySound("Water");
     }
 
     void StartGrowing()
@@ -137,6 +139,7 @@ public class Plant : MonoBehaviour
         canvasUI.ChangeImage(emptySprite);
         Instantiate(harvestFX, transform.position, Quaternion.identity);
         PlayerInventory.Instance.CreateWorldText("+" + amount.ToString() + " " + plantedPlant.harvestItem.itemName, textData);
+        FindObjectOfType<AudioManager>().PlaySound("Harvest");
     }
 
     void UpdateStage()
@@ -162,6 +165,7 @@ public class Plant : MonoBehaviour
             isGrowing = false;
             transform.localPosition = plantedPlant.endPlantPivot;
             canvasUI.ChangeImage(harvestSprite);
+            FindObjectOfType<AudioManager>().PlaySound3D("Grow", gameObject);
         }
     }
 }

@@ -46,6 +46,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        PlayMusic("Gameplay");
+    }
+
     public void PlayMusic(string name)
     {
         Music s = Array.Find(musics, sound => sound.name == name);
@@ -62,7 +67,7 @@ public class AudioManager : MonoBehaviour
         Sounds s = Array.Find(sounds, sound => sound.name == name);
         AudioSource src = gameObject.AddComponent<AudioSource>();
         src.playOnAwake = false;
-        src.spatialBlend = 1f;
+        src.spatialBlend = 0f;
         src.maxDistance = 40;
         src.clip = s.clip;
         src.volume = s.Volume;
@@ -70,5 +75,20 @@ public class AudioManager : MonoBehaviour
         src.Play();
         Destroy(src, src.clip.length);
         Debug.Log(s.name);
+    }
+
+    public void PlaySound3D(string name, GameObject obj)
+    {
+        Sounds s = Array.Find(sounds, sound => sound.name == name);
+        AudioSource src = obj.AddComponent<AudioSource>();
+        src.playOnAwake = false;
+        src.spatialBlend = 1f;
+        src.maxDistance = 40;
+        src.clip = s.clip;
+        src.volume = s.Volume;
+        src.pitch = s.pitch;
+        src.Play();
+        Destroy(src, src.clip.length);
+        Debug.Log(s.name + " 3D");
     }
 }

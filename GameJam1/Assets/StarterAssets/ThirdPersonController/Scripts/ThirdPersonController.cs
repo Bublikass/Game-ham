@@ -113,7 +113,7 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
-        public bool canMove = true;
+        public bool canMove = false;
         private bool IsCurrentDeviceMouse
         {
             get

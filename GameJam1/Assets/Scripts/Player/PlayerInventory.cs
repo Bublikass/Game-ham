@@ -68,7 +68,7 @@ public class PlayerInventory : MonoBehaviour
             item.amount = 0;
         }
 
-        balance = 20;
+        balance = 80;
     }
 
     public void Update()

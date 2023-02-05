@@ -21,6 +21,7 @@ public class BuildingBase : MonoBehaviour
 
     [SerializeField] private RectTransform errorPos;
 
+    [SerializeField] private GameObject buildingObject;
     public virtual void Repair()
     {
         bool hasResources = false;
@@ -57,9 +58,13 @@ public class BuildingBase : MonoBehaviour
 
             repairedBuilding.SetActive(true);
             brokenBuilding.SetActive(false);
+            Destroy(buildingObject);
+            this.gameObject.SetActive(false);
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Success");
         }
         else
         {
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Fail");
             PlayerInventory.Instance.Create2DText("You don't have enough resources!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
         }
 

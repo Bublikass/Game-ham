@@ -24,21 +24,38 @@ public class ShopItem : MonoBehaviour
     {
         bool bought = PlayerInventory.Instance.BuyItem(plant);
         if (!bought)
+        {
             PlayerInventory.Instance.Create2DText("You don't have enough coins!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Fail");
+        }
+        else
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Success");
+
     }
 
     public void SellItem()
     {
         bool sold = PlayerInventory.Instance.SellItem(item, 1);
         if (!sold)
+        {
             PlayerInventory.Instance.Create2DText("You don't have enough supplies!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Fail");
+        }
+        else
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Success");
+
     }
 
     public void SellAllItems()
     {
         bool sold = PlayerInventory.Instance.SellItem(item, item.amount);
         if (!sold)
+        {
             PlayerInventory.Instance.Create2DText("You don't have enough supplies!", errorPos.position, transform, PlayerInventory.Instance.textData2DDefault);
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Fail");
+        }
+        else
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Success");
     }
 
     public void SetPrice()

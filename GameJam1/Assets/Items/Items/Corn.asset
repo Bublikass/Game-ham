@@ -16,6 +16,6 @@ MonoBehaviour:
   harvestIcon: {fileID: 0}
   itemName: Corn
   isSeed: 0
-  amount: 20
+  amount: 0
   price: 20
   sellPrice: 15
