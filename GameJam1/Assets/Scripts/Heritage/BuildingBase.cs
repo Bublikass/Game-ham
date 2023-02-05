@@ -61,6 +61,7 @@ public class BuildingBase : MonoBehaviour
             Destroy(buildingObject);
             this.gameObject.SetActive(false);
             FindObjectOfType<AudioManager>().PlaySound("Buy_Success");
+            FindObjectOfType<AudioManager>().PlaySound("Build");
         }
         else
         {
