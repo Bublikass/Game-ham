@@ -64,6 +64,7 @@ public class Plant : MonoBehaviour
         if (plantSo.amount == 0)
         {
             PlayerInventory.Instance.CreateWorldText("You don't have enough seeds to plant!", PlayerInventory.Instance.textDataDefault);
+            FindObjectOfType<AudioManager>().PlaySound("Buy_Fail");
             return;
         }
 

@@ -16,5 +16,7 @@ public class BuildingInteractable : Interactable
             PlayerInventory.Instance.OpenBuildingUI(PlayerInventory.Instance.cartUI);
         else if (plot)
             PlayerInventory.Instance.OpenBuildingUI(PlayerInventory.Instance.plotUI);
+
+        FindObjectOfType<AudioManager>().PlaySound("Interact");
     }
 }

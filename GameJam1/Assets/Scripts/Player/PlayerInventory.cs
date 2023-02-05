@@ -77,6 +77,10 @@ public class PlayerInventory : MonoBehaviour
         {
             inventoryVisual.UpdateItems();
             inventoryObject.SetActive(!inventoryObject.activeSelf);
+            if (inventoryObject.activeSelf == false)
+                FindObjectOfType<AudioManager>().PlaySound("Bag_Close");
+            else
+                FindObjectOfType<AudioManager>().PlaySound("Bag_Open");
             inputs.inventory = false;
         }
 

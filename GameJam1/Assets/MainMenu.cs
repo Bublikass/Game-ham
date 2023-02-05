@@ -8,10 +8,11 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Transform cameraRoot;
 
-    [SerializeField] private CinemachineVirtualCamera camera;
+    [SerializeField] private GameObject camera;
 
     [SerializeField] private GameObject balance;
     [SerializeField] private GameObject selectedItem;
+    [SerializeField] private GameObject backpackIcon;
     public void Quit()
     {
         Application.Quit();
@@ -19,10 +20,12 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        camera.Follow = cameraRoot;
+        camera.SetActive(false);
         gameObject.SetActive(false);
         ThirdPersonController.instance.canMove = true;
         balance.SetActive(true);
         selectedItem.SetActive(true);
+        backpackIcon.SetActive(true);
+        
     }
 }

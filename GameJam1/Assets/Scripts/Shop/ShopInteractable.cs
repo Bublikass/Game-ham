@@ -7,5 +7,6 @@ public class ShopInteractable : Interactable
     public override void Interact()
     {
         PlayerInventory.Instance.OpenShop();
+        FindObjectOfType<AudioManager>().PlaySound("Interact");
     }
 }
